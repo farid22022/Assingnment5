@@ -21,7 +21,12 @@ let before_cost = 0;
 
 let seat_left = 40;
 
-
+if (seat_left == 0) {
+    const overFlow = document.getElementById('overflow');
+    const h1 = document.createElement('h2');
+    h1.innerText = 'Not Available';
+    overFlow.append(h1);
+}
 
 function discount(){
     const cuponForCouple = document.getElementById('cupon-couple');
@@ -188,11 +193,3 @@ function Restart(){
     }
 }
 
-if(seat_left == 0){
-    const NoSeat = document.getElementById('total-seat');
-    h1 = document.createElement('h3');
-    h1.innerText = 'No Seat Available ';
-    h2 = '0';
-    NoSeat.append(h1);
-    NoSeat.append(h2);
-}
