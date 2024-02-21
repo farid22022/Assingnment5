@@ -1,136 +1,10 @@
-// function play(){
-//     // step:1 hide the home screen. To the screen add the class hidden to
-//     // the home section
-//     const homeSection = document.getElementById('home-screen');
-//     homeSection.classList.add('hidden');
-//     // console.log(homeSection.classList)
-    
-
-//     // show the playground
-//     const playGround = document.getElementById('play-ground');
-//     playGround.classList.remove('hidden');
-// }
-
-
-function handleKeyboardButtonPress(event){
-    
-    // const playerPressed = event.key;
-    // // console.log('button pressed');
-    // // console.log(playerPressed);
-    
-    // // get the expected to press
-    // const currentAlphabetElement = document.getElementById('current-alphabet');
-    // const currentAlphabet = currentAlphabetElement.innerText;
-    // const expectedAlphabet = currentAlphabet.toLowerCase();
-    // // console.log(playerPressed,expectedAlphabet);
-
-    // if(playerPressed === expectedAlphabet){
-    //     console.log('Right');
-    //     const currentScore = getTextElementValueById('current-score');
-    //     const updatedScore = currentScore+1;
-    //     setTextElementValueById('current-score',updatedScore);
-
-
-    //     //stop the game if pressed
-    //     if(playerPressed ==='Escape'){
-    //         gameOver();
-    //     }
-
-    //     //-------------------------------------------------
-    //     // console.log('you have pressed correctly',expectedAlphabet);
-    //     //update score
-    //     //1. get the current score
-
-    //     // const currentScoreElement = document.getElementById('current-score');
-    //     // const currentScoreText = currentScoreElement.innerText;
-    //     // const currentScore = parseInt(currentScoreText);
-    //     // // console.log(currentScore);
-
-    //     // //2. increase the score by 1
-    //     // const newScore = currentScore+1;
-
-    //     // //3. show the updated score
-    //     // currentScoreElement.innerText = newScore;
-
-
-    //     //start a new round
-    //     removeBackgroundColorById(expectedAlphabet);
-    //     continueGame();
-    // }
-    // else{
-    //     // console.log('Wrong');
-
-
-    //     const currentLife = getTextElementValueById('current-life');
-    //     const updatedLife = currentLife - 1;
-    //     setTextElementValueById('current-life',updatedLife);
-
-    //     if(updatedLife === 0){
-    //         gameOver();
-    //     }
-
-    //     //--------------------------------------------
-    //     //step-1: get the current life number
-    //     // const currentLifeElement = document.getElementById('current-life');
-    //     // const currentLifeText = currentLifeElement.innerText;
-    //     // const currentLife = parseInt(currentLifeText);
-        
-
-    //     //step-2:reduce the life count
-    //     // const newLife = currentLife-1;
-    //     // console.log(newLife,currentLife);
-
-    //     //step-3:display the updated life count
-    //     // currentAlphabetElement.innerText = newLife;
-        
-    // }
-}
-document.addEventListener('keyup',handleKeyboardButtonPress);
-
-function continueGame(){
-    // step-1: Generate a random alphabet
-    // const alphabet = getRandomAlphabet();
-    // // console.log('your alphabet',alphabet)
-
-    // //set randomly generated alphabet to the screen (show it)
-    // // console.log('your random alphabet ',alphabet);
-    // const currentAlphabetElement = document.getElementById('current-alphabet');
-    // currentAlphabetElement.innerText = alphabet;
-
-    // //set background color 
-    // setBackgroundById(alphabet);
-
-
-
-}
-
 function play(){
-    //hide everything show only the playground
-    hideElementById('home-screen-1');
-    hideElementById('home-screen-2');
-    hideElementById('home-screen-3');
-    hideElementById('home-screen-4');
-    // showElementById('play-ground');
-
-    //reset the score and life
-    setTextElementValueById('current-life',5);
-    setTextElementValueById('current-score',0);
-    continueGame();
+    document.getElementById('home-screen-1').classList.add('hidden')
+    document.getElementById('home-screen-2').classList.add('hidden')
+    document.getElementById('home-screen-3').classList.add('hidden')
 }
 
-function gameOver(){
-    hideElementById('play-ground');
-    showElementById('final-score');
-    //update final score 
-    //1.get the final score
-    const lastScore = getTextElementValueById('current-score');
-    setTextElementValueById('last-score',lastScore);
 
-    //clear the last selected alphabet highlighted
-    const currentAlphabet = getElementTextById('current-alphabet');
-    removeBackgroundColorById(currentAlphabet);
-
-}
 let current_seat = 0;
 
 let discount_new  = 0;
@@ -148,7 +22,7 @@ let seat_left = 40;
 
 
 
-function discount1(){
+function discount(){
     const cuponForCouple = document.getElementById('cupon-couple');
     const cuponForNew = document.getElementById('cupon-new');
 
@@ -162,6 +36,20 @@ function discount1(){
     if (cuponText.value === 'NEW15' && (current_seat == 2 || current_seat == 3)) {
         total_cost = parseFloat(total_cost);
         let disCountPrice1 = .85 * 1100;
+        disCountPrice1 = disCountPrice1+550;
+        
+        const grandPrice = document.getElementById('grand-price');
+        grandPrice.innerText = disCountPrice1; // Set the grand total to the updated value
+    }
+    if (cuponText.value === 'Couple 20' && (current_seat == 4)) {
+        total_cost = parseFloat(total_cost);
+        let discount2  = .80 * total_cost;
+        const grandPrice = document.getElementById('grand-price');
+        grandPrice.innerText = discount2; // Set the grand total to the updated value
+    }
+    if (cuponText.value === 'Couple 20' && (current_seat == 2 || current_seat == 3)) {
+        total_cost = parseFloat(total_cost);
+        let disCountPrice1 = .80 * 1100;
         disCountPrice1 = disCountPrice1+550;
         
         const grandPrice = document.getElementById('grand-price');
@@ -275,10 +163,14 @@ seatButtons.forEach(button => {
 
 function Next_page(){
     document.getElementById('Home-screen-1').classList.add('hidden');
-    document.getElementById('Home-screen-2').classList.add('hidden');
-    document.getElementById('Home-screen-3').classList.add('hidden');
-    document.getElementById('Home-screen-4').classList.add('hidden');
-    document.getElementById('Home-screen-5').classList.add('hidden');
+    
 }
 
 
+function change_screen(){
+    document.getElementById('home-screen-1').classList.add('hidden');
+    document.getElementById('home-screen-2').classList.add('hidden');
+    document.getElementById('home-screen-3').classList.add('hidden');
+    document.getElementById('home-screen-4').classList.add('hidden');
+    document.getElementById('home-screen-5').classList.add('hidden');
+}
