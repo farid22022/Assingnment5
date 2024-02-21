@@ -187,3 +187,12 @@ function Restart(){
         document.getElementById('home-screen-6').classList.remove('hidden')
     }
 }
+
+if(seat_left == 0){
+    const NoSeat = document.getElementById('total-seat');
+    h1 = document.createElement('h3');
+    h1.innerText = 'No Seat Available ';
+    h2 = '0';
+    NoSeat.append(h1);
+    NoSeat.append(h2);
+}
