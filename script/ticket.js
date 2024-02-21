@@ -235,7 +235,7 @@ function pressSeat(button) {
 
     console.log(phoneNumber);
 
-    if (current_seat >= 1 && phoneNumber > 1) {
+    if (current_seat >= 1) {
         // If the conditions are met, enable the next button
         const btn = document.getElementById('next-btn');
         btn.disabled = false;
@@ -273,8 +273,12 @@ seatButtons.forEach(button => {
     });
 });
 
-// if (increase_seat >= 1) {
-//     document.getElementById('next-btn').disabled = false;
-// }
+function Next_page(){
+    document.getElementById('Home-screen-1').classList.add('hidden');
+    document.getElementById('Home-screen-2').classList.add('hidden');
+    document.getElementById('Home-screen-3').classList.add('hidden');
+    document.getElementById('Home-screen-4').classList.add('hidden');
+    document.getElementById('Home-screen-5').classList.add('hidden');
+}
 
 
