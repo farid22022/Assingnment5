@@ -2,6 +2,7 @@ function play(){
     document.getElementById('home-screen-1').classList.add('hidden')
     document.getElementById('home-screen-2').classList.add('hidden')
     document.getElementById('home-screen-3').classList.add('hidden')
+    document.getElementById('home-screen-6').classList.add('hidden')
 }
 
 
@@ -173,4 +174,16 @@ function change_screen(){
     document.getElementById('home-screen-3').classList.add('hidden');
     document.getElementById('home-screen-4').classList.add('hidden');
     document.getElementById('home-screen-5').classList.add('hidden');
+    document.getElementById('home-screen-6').classList.remove('hidden');
+}
+
+function Restart(){
+    if(seat_left <=40){
+        document.getElementById('home-screen-1').classList.remove('hidden')
+        document.getElementById('home-screen-2').classList.remove('hidden')
+        document.getElementById('home-screen-3').classList.remove('hidden')
+        document.getElementById('home-screen-4').classList.remove('hidden')
+        document.getElementById('home-screen-5').classList.remove('hidden')
+        document.getElementById('home-screen-6').classList.remove('hidden')
+    }
 }
