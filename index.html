@@ -27,7 +27,9 @@
 </head>
 <body>
     <main class="mt-6 min-h-screen m-24">
-        <section id="home-screen-1" class="flex justify-around">
+
+        <!-- nav bar -->
+        <section id="home-screen-1" class="flex justify-around ">
             <div class="">
                 <button class="text-black text-4xl font-bold">P-Ticket</button>
             </div>
@@ -45,15 +47,16 @@
             </div>
         </section>
 
-        <section id="home-screen-2" class="flex flex-col items-center  bg-[url(images/banner.png)] bg-no-repeat bg-cover bg-center  relative rounded-2xl ">
-            <div class="flex flex-col items-center ">
+        <!-- banner section -->
+        <section id="home-screen-2" class="flex flex-col items-center  bg-[url(images/banner.png)] bg-no-repeat bg-cover bg-center  relative rounded-2xl">
+            <div class="flex flex-col items-center">
                 <h3 class="font-raleway mt-16 text-white text-4xl font-bold">End-to-End Travel with</h3>
                 <h3 class="font-raleway mt-8 text-[#1DD100] text-4xl font-bold">P Poribohon</h3>
                 <p class="text-white mt-8 text-2xl">Yes, you can run unit tests and view the results directly within the app.</p>
                 <p class=" text-white mb-12">The integrated testing features allow for a streamlined</p>
                 <button onclick="play()" class="btn btn-info mb-52 ">Buy Tickets!</button>
             </div>
-            <div class="lg:flex md:grid-cols-1  md:space-y-5 lg:space-x-8 absolute -bottom-16 ">
+            <div class="lg:flex md:grid-cols-1  md:space-y-5 lg:space-x-8 absolute -bottom-16 hidden">
                 <button class="flex bg-[#FFFFFF] rounded-2xl  px-20 py-3 border-b-green-400">
                     <div class="">
                         <img src="images/people.png" alt="" srcset="">
@@ -84,18 +87,21 @@
             </div>
         </section>
 
-        <section id="home-screen-3" class=" flex flex-col items-center mt-48 space-y-3">
+        
+        <section id="home-screen-3" class=" flex flex-col items-center mt-48 space-y-3 ">
             <div class="">
                 <h1 class="text-5xl font-bold text-black mb-10">Best offers for you</h1>
             </div>
             <div class="lg:flex md:grid-cols-1  lg:space-x-24  ">
-                <div class="lg:flex md:mb-10 lg:divide-x lg:divide-dashed md:divide-y md:divide-dashed bg-[#FFBF0F] rounded-3xl">
+                <div class="lg:flex mb-10  bg-[#FFBF0F] rounded-3xl">
                     <div class="p-16 justify-center items-center">
                         <h3 class="text-3xl font-bold">15% OFF</h3>
                         <h4>on your next purchase</h4>
                         <h4>use by January 2024</h4>
                     </div>
-                    
+                    <div class="">
+                        <img  height="100px" src="images/cupon-devider.png" alt="">
+                    </div>
                     <div class="p-16">
                         <h3 id="cupon-new">NEW15</h3>
                         <h4>Coupon Code</h4> 
@@ -120,7 +126,7 @@
             </div>
         </section>
 
-        <section id="home-screen-4" class="mt-12  ">
+        <section id="home-screen-4" class="mt-12 ">
             <div class="text-center mb-8">
                 <h3 class="text-center font-bold text-4xl mb-8">P.H Paribahan</h3>
                 <p>Yes, you can run unit tests and view the results directly within the app. The integrated <br>testing features allow for a streamlined .</p>
@@ -129,7 +135,7 @@
 
 
             <div class="lg:flex grid-cols-1">
-                <div class="mt-12 grid grid-col   ">
+                <div class="mt-1 grid grid-col   ">
                     <div class="flex justify-between">
                         <div class="flex">
                             <div class="">
@@ -339,7 +345,7 @@
 
 
         <section >
-            <div  id="home-screen-6"  class=" flex flex-col items-center mt-48 ">
+            <div  id="home-screen-6 hidden"  class=" flex flex-col items-center mt-48 ">
                 <img class="text-center mt-5" src="images/success.png" alt="">
                 <h3 class=" text-center text-2xl text-green-900">Success</h3>
                 <p class= "text-center text-black ">Thank you for Booking Our Bus Seats. <br>

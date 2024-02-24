@@ -66,77 +66,77 @@ function discount(){
  
 
 
+
+    
+    
 function pressSeat(button) {
     const seatId = button.id;
     console.log(seatId);
-    const newSeat = document.getElementById('new-seat');
-    const div = document.createElement('div');
-    const h1 = document.createElement('h1');
-    h1.innerText = seatId;
-    const h2 = document.createElement('h1');
-    h2.innerText = 'Economoy';
-    const h3 = document.createElement('h1');
-    h3.innerText = '550';
-    div.appendChild(h1);
-    div.appendChild(h2);
-    div.appendChild(h3);
-    div.classList.add('flex');
-    div.classList.add('justify-around')
-    div.classList.add('bg-[F7F8F8]')
-    newSeat.appendChild(div);
-    current_seat ++;
-    increase_seat ++;
-    seat_left--;
+    const newSeat = document.getElementById(seatId);
     
-    
-    total_cost+=550;
-    before_cost+=550;
+    // Check if newSeat does not contain 'selected' class
+    if (!newSeat.classList.contains('used')) {
+        // newSeat.classList.add('used');
 
-    
-    const leftSeat = document.getElementById('total-seat');
-    leftSeat.innerText = seat_left;
+        const listedSeat = document.getElementById('new-seat');
+        const div = document.createElement('div');
+        const h1 = document.createElement('h1');
+        h1.innerText = seatId;
+        const h2 = document.createElement('h1');
+        h2.innerText = 'Economoy';
+        const h3 = document.createElement('h1');
+        h3.innerText = '550';
+        div.appendChild(h1);
+        div.appendChild(h2);
+        div.appendChild(h3);
+        div.classList.add('flex');
+        div.classList.add('justify-around');
+        // div.classList.add('bg-[#F7F8F8]');
+        // newSeat.appendChild(div);
+        listedSeat.appendChild(div)
+        newSeat.classList.add('disable');
+        current_seat++;
+        increase_seat++;
+        seat_left--;
+        total_cost += 550;
+        before_cost += 550;
+        newSeat.classList.add('used');
+        const leftSeat = document.getElementById('total-seat');
+        leftSeat.innerText = seat_left;
+        console.log(total_cost);
+        const totalPrice = document.getElementById('total-price');
+        totalPrice.innerText = before_cost;
+        const increaseSeat = document.getElementById('increase-seats');
+        increaseSeat.innerText = increase_seat;
+        setBackgroundById(seatId);
+        seatsFilled++;
 
-    console.log(total_cost);
-    const totalPrice = document.getElementById('total-price');
-    totalPrice.innerText = before_cost;
-    const increaseSeat = document.getElementById('increase-seats');
-    increaseSeat.innerText = increase_seat;
-
-    
-
-    
-    setBackgroundById(seatId);
-    seatsFilled++;
-    console.log(seatsFilled);
-
-    if (seatsFilled === 4 ) {
-        disableAllSeats();
-        // enable the input field
-    }
-    if(current_seat  >= 2){
         
-        const applyButton = document.getElementById('cupon2');
-        applyButton.disabled = false;
-    
-        // Enable the coupon input field
-        const couponField = document.getElementById('cupon1');
-        couponField.disabled = false; 
+        console.log(newSeat);
+        if (seatsFilled === 4) {
+            disableAllSeats();
+            // enable the input field
+        }
+        if (current_seat >= 2) {
+            const applyButton = document.getElementById('cupon2');
+            applyButton.disabled = false;
+            // Enable the coupon input field
+            const couponField = document.getElementById('cupon1');
+            couponField.disabled = false; 
+        }
+        const phone = document.getElementById('phone');
+        let phoneNumber = Number(phone);
+        // console.log(phoneNumber);
+        if (current_seat >= 1) {
+            // If the conditions are met, enable the next button
+            const btn = document.getElementById('next-btn');
+            btn.disabled = false;
+        }
+        // Now add the 'selected' class to newSeat
+        
     }
-    const phone = document.getElementById('phone');
-    let phoneNumber = Number(phone);
-
-
-
-    console.log(phoneNumber);
-
-    if (current_seat >= 1) {
-        // If the conditions are met, enable the next button
-        const btn = document.getElementById('next-btn');
-        btn.disabled = false;
-    }
-
 }
-
+    
 function disableAllSeats() {
     const seatButtons = document.querySelectorAll('.btn');
     seatButtons.forEach(button => {
@@ -174,12 +174,11 @@ function Next_page(){
 
 
 function change_screen(){
-    document.getElementById('home-screen-1').classList.add('hidden');
-    document.getElementById('home-screen-2').classList.add('hidden');
-    document.getElementById('home-screen-3').classList.add('hidden');
-    document.getElementById('home-screen-4').classList.add('hidden');
-    document.getElementById('home-screen-5').classList.add('hidden');
-    document.getElementById('home-screen-6').classList.remove('hidden');
+    document.getElementById('home-screen-1').classList.add('hidden')
+    document.getElementById('home-screen-2').classList.add('hidden')
+    document.getElementById('home-screen-3').classList.add('hidden')
+    document.getElementById('home-screen-4').classList.add('hidden')
+    document.getElementById('home-screen-5').classList.add('hidden')
 }
 
 function Restart(){
